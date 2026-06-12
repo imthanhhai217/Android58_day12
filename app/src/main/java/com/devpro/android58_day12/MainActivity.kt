@@ -1,6 +1,7 @@
 package com.devpro.android58_day12
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -8,10 +9,11 @@ import androidx.lifecycle.ViewModel
 import com.devpro.android58_day12.databinding.ActivityMainBinding
 import com.devpro.android58_day12.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
+    private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
 

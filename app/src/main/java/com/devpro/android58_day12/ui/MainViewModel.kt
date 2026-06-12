@@ -38,6 +38,20 @@ class MainViewModel @Inject constructor(
         if (n.isBlank()) "Hello, Guest! 👋" else "Hello, $n! 👋"
     }
 
+    val demoLiveDataObject = MutableLiveData(User(name = "Alice", email = "hi"))
+
+    val demoMutableLive = MutableLiveData("Hello")
+
+    init {
+        updateDemoLiveData()
+    }
+
+    fun updateDemoLiveData(){
+//        demoMutableLive.value = "Xinchao"
+        demoMutableLive.postValue("Post Xinchao")
+    }
+
+
     val statusLabel: LiveData<String> = isActive.map { active ->
         if (active) "Active" else "Inactive"
     }
