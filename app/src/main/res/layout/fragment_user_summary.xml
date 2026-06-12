@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.devpro.android58_day12.ui.MainViewModel" />
+    </data>
+
+    <!-- Fragment summary: dùng activityViewModels() chia se cung VM voi Activity -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:strokeColor="?colorPrimary"
+        app:strokeWidth="1dp"
+        tools:context=".ui.UserSummaryFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="[Fragment] activityViewModels()"
+                android:textColor="?colorPrimary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Quan sat LiveData tu Activity ViewModel (chia se cung instance) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.greeting}"
+                android:textSize="15sp"
+                tools:text="Hello, User!" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_status_dot"
+                    app:dotActiveColor="@{vm.isActive}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.statusLabel}"
+                    android:textSize="13sp"
+                    app:activeTextColor="@{vm.isActive}"
+                    tools:text="Active" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@{vm.saveMessage}"
+                android:textColor="#4CAF50"
+                android:textSize="13sp"
+                app:visibleIf="@{vm.hasSaveMessage}"
+                tools:text="Saved!" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
